@@ -9,8 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tool } from '@/types/tool';
 import { getLatestRelease } from '@/lib/github';
 import { GitHubRelease } from '@/types/github';
-import { Download, Calendar, Play } from 'lucide-react';
-import { GitHubIconCombined } from '@/components/ui/github-icon';
+import { Download, Calendar, Play, Github } from 'lucide-react';
 
 interface ToolCardProps {
   tool: Tool;
@@ -42,10 +41,10 @@ export function ToolCard({ tool }: ToolCardProps) {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer">
+      <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
           {/* Hero Image with Screenshot Background */}
-          <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20">
+          <DialogTrigger asChild>
+            <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 cursor-pointer">
             <Image
               src={tool.images.hero}
               alt={`${tool.name} screenshot`}
@@ -57,7 +56,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                 target.style.display = 'none';
               }}
             />
-            
+
             {/* Play Button Overlay */}
             {tool.images.demo && (
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
@@ -66,7 +65,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                 </div>
               </div>
             )}
-            
+
             {/* Status Badge */}
             <div className="absolute top-4 right-4">
               <Badge variant={tool.status === 'active' ? 'default' : 'secondary'}>
@@ -90,98 +89,99 @@ export function ToolCard({ tool }: ToolCardProps) {
                 </Badge>
               </div>
             )}
-          </div>
-      
-      <CardHeader className="space-y-3">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src={tool.images.icon}
-              alt={`${tool.name} icon`}
-              width={32}
-              height={32}
-              className="rounded"
-              onError={(e) => {
-                // Fallback icon
-                const target = e.target as HTMLImageElement;
-                target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzM3NzNmNCIvPgo8dGV4dCB4PSIxNiIgeT0iMjAiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UPC90ZXh0Pgo8L3N2Zz4K';
-              }}
-            />
-            <div>
-              <CardTitle className="text-lg">{tool.name}</CardTitle>
-              <CardDescription>{tool.tagline}</CardDescription>
             </div>
-          </div>
-        </div>
-      </CardHeader>
-      
-      <CardContent className="space-y-4">
-        <p className="text-sm text-muted-foreground line-clamp-2">{tool.description}</p>
-        
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1">
-          {tool.tech.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-          {tool.tech.length > 4 && (
-            <Badge variant="outline" className="text-xs">
-              +{tool.tech.length - 4} more
-            </Badge>
-          )}
-        </div>
+          </DialogTrigger>
 
-        {/* Release Info */}
-        {release && (
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-3 h-3" />
-              {new Date(release.published_at).toLocaleDateString()}
+          <CardHeader className="space-y-3">
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <Image
+                  src={tool.images.icon}
+                  alt={`${tool.name} icon`}
+                  width={32}
+                  height={32}
+                  className="rounded"
+                  onError={(e) => {
+                    // Fallback icon
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzM3NzNmNCIvPgo8dGV4dCB4PSIxNiIgeT0iMjAiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UPC90ZXh0Pgo8L3N2Zz4K';
+                  }}
+                />
+                <div>
+                  <CardTitle className="text-lg">{tool.name}</CardTitle>
+                  <CardDescription>{tool.tagline}</CardDescription>
+                </div>
+              </div>
             </div>
-            {tool.stats?.downloads && (
-              <div className="flex items-center gap-1">
-                <Download className="w-3 h-3" />
-                {tool.stats.downloads} downloads
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground line-clamp-2">{tool.description}</p>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-1">
+              {tool.tech.slice(0, 4).map((tech) => (
+                <Badge key={tech} variant="outline" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+              {tool.tech.length > 4 && (
+                <Badge variant="outline" className="text-xs">
+                  +{tool.tech.length - 4} more
+                </Badge>
+              )}
+            </div>
+
+            {/* Release Info */}
+            {release && (
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {new Date(release.published_at).toLocaleDateString()}
+                </div>
+                {tool.stats?.downloads && (
+                  <div className="flex items-center gap-1">
+                    <Download className="w-3 h-3" />
+                    {tool.stats.downloads} downloads
+                  </div>
+                )}
               </div>
             )}
-          </div>
-        )}
-        
-        {/* Action Buttons */}
-        <div className="flex gap-2 pt-2">
-          <Button 
-            asChild 
-            size="sm" 
-            className="flex-1 bg-blue-600 hover:bg-blue-700"
-            disabled={loading}
-          >
-            <a 
-              href={downloadUrl}
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Download className="mr-2 h-3 w-3" />
-              {loading ? 'Loading...' : 'Download'}
-            </a>
-          </Button>
-          
-          <Button variant="outline" size="sm" asChild>
-            <a 
-              href={tool.github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-1"
-            >
-              <GitHubIconCombined size={12} />
-              Source 
-            </a>
-          </Button>
-        </div>
-      </CardContent>
+
+            {/* Action Buttons */}
+            <div className="flex gap-2 pt-2">
+              <Button
+                asChild
+                size="sm"
+                className="flex-1 bg-yellow-500 hover:bg-red-500"
+                disabled={loading}
+              >
+                <a
+                  href={downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Download className="mr-2 h-3 w-3" />
+                  {loading ? 'Loading...' : 'Download'}
+                </a>
+              </Button>
+
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href={tool.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex items-center gap-1">
+                  <Github size={12} />
+                  Source
+                </a>
+              </Button>
+            </div>
+          </CardContent>
         </Card>
-      </DialogTrigger>
-      
+
       {/* Demo Dialog */}
       {tool.images.demo && (
         <DialogContent className="max-w-6xl w-full max-h-[90vh] overflow-y-auto">
@@ -219,7 +219,7 @@ export function ToolCard({ tool }: ToolCardProps) {
               </div>
             </div>
           </DialogHeader>
-          
+
           <div className="space-y-6">
             {/* Demo GIF */}
             <div className="flex justify-center">
@@ -232,14 +232,14 @@ export function ToolCard({ tool }: ToolCardProps) {
                 unoptimized // Important for GIFs to preserve animation
               />
             </div>
-            
+
             {/* Full Description */}
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold mb-2">Description</h3>
                 <p className="text-muted-foreground leading-relaxed">{tool.description}</p>
               </div>
-              
+
               {tool.longDescription && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">About</h3>
@@ -247,7 +247,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                 </div>
               )}
             </div>
-            
+
             {/* Technical Details */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -258,7 +258,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                   ))}
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-semibold mb-3">Platforms</h3>
                 <div className="flex flex-wrap gap-2">
@@ -268,7 +268,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                 </div>
               </div>
             </div>
-            
+
             {/* Features */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -282,7 +282,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                   ))}
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-semibold mb-3">🚧 Planned Features</h3>
                 <ul className="space-y-2">
@@ -295,13 +295,13 @@ export function ToolCard({ tool }: ToolCardProps) {
                 </ul>
               </div>
             </div>
-            
+
             {/* Action Buttons */}
             <div className="flex gap-3 pt-4 border-t">
               <Button asChild>
-                <a 
-                  href={downloadUrl} 
-                  target="_blank" 
+                <a
+                  href={downloadUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
@@ -309,19 +309,19 @@ export function ToolCard({ tool }: ToolCardProps) {
                   Download Latest
                 </a>
               </Button>
-              
+
               <Button variant="outline" asChild>
-                <a 
-                  href={tool.github} 
-                  target="_blank" 
+                <a
+                  href={tool.github}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <GitHubIconCombined size={16} />
+                  <Github size={16} />
                   View Source
                 </a>
               </Button>
-              
+
               {release && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground ml-auto">
                   <Calendar className="h-4 w-4" />

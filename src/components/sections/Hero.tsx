@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
-import { GitHubIconCombined } from '@/components/ui/github-icon';
+import { Download, Github } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -10,7 +9,7 @@ export default function Hero() {
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             Developer Tools
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600 ">
               That Actually Work
             </span>
           </h1>
@@ -46,7 +45,7 @@ export default function Hero() {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <GitHubIconCombined size={20} className="mr-2" />
+                              <Github size={20} className="mr-2" />
               View on GitHub
             </a>
           </Button>

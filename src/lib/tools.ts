@@ -31,7 +31,7 @@ export const tools: Tool[] = [
         '/images/tools/t1/t1-screenshot.png',
       ],
       demo: '/images/tools/t1/t1-gif.gif',
-      icon: '/images/tools/t1/placeholder.svg',
+      icon: '/images/tools/t1/placeholder.svg', // TODO: What is this for?
     },
     
     features: {

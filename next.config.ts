@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // TODO: Update this with your actual repository name for GitHub Pages
+  // TODO: GitHub Pages deployment configuration
   basePath: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
   

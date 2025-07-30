@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import { GitHubIconCombined } from '@/components/ui/github-icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,7 +23,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <GitHubIconCombined size={20} />
+                <Github size={20} />
               </a>
             </div>
           </div>
