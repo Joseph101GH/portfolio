@@ -26,12 +26,12 @@ export const tools: Tool[] = [
     },
     
     images: {
-      hero: '/images/tools/t1/t1-screenshot.png',
+      hero: './images/tools/t1/t1-screenshot.png',
       screenshots: [
-        '/images/tools/t1/t1-screenshot.png',
+        './images/tools/t1/t1-screenshot.png',
       ],
-      demo: '/images/tools/t1/t1-gif.gif',
-      icon: '/images/tools/t1/placeholder.svg', // TODO: What is this for?
+      demo: './images/tools/t1/t1-gif.gif',
+      icon: './images/tools/t1/t1-icon.svg',
     },
     
     features: {
