@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   },
   // GitHub Pages deployment configuration
   basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio/' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
   
   // Enable static optimization
   generateEtags: false,
