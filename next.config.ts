@@ -1,7 +1,29 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  // Update this with your actual repository name for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
+  
+  // Enable static optimization
+  generateEtags: false,
+  
+  // Customize webpack for better optimization
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Ensure splitChunks exists and is an object
+      if (!config.optimization.splitChunks || typeof config.optimization.splitChunks === 'boolean') {
+        config.optimization.splitChunks = {};
+      }
+      config.optimization.splitChunks.chunks = 'all';
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
