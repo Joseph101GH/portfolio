@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,17 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio - Modern Tools for Windows 11',
+  title: 'Developer Portfolio - Modern Tools for Windows 11', //tab name
   description: 'Professional developer tools including t1 - a modern desktop suite for Windows. Download free utilities for .env editing, text conversion, and more. Built with Tauri and React.',
   keywords: ['developer tools', 'desktop apps', 'tauri', 'react', 'windows software', 'productivity', '.env editor', 'text converter'],
-  authors: [{ name: 'Your Name' }], // UPDATE WITH YOUR NAME
-  creator: 'Your Name', // UPDATE WITH YOUR NAME
-  publisher: 'Your Name', // UPDATE WITH YOUR NAME
+      authors: [{ name: 'Joseph' }],
+    creator: 'Joseph',
+    publisher: 'Joseph',
   
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yourusername.github.io/portfolio-website/', // UPDATE WITH YOUR URL
+    url: 'https://joseph101gh.github.io/portfolio-website/',
     siteName: 'Developer Portfolio - Modern Tools',
     title: 'Developer Portfolio - Modern Tools for Windows 11',
     description: 'Professional developer tools and utilities built with modern technologies',
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
 
-  metadataBase: new URL('https://yourusername.github.io/portfolio-website/'), // UPDATE WITH YOUR URL
+  metadataBase: new URL('https://joseph101gh.github.io/portfolio-website/'),
 };
 
 export default function RootLayout({
@@ -65,11 +66,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background font-sans`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

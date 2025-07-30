@@ -5,7 +5,7 @@ export const tools: Tool[] = [
     id: 't1',
     name: 'Developer Tools Suite (t1)',
     tagline: 'Modern desktop toolkit for developers',
-    description: 'A comprehensive suite of developer utilities built with Tauri and React, designed for Windows 11 with a beautiful, native-feeling interface.',
+    description: 'A comprehensive suite of developer utilities built with Tauri and React, designed primarily for Windows 11 with a beautiful, native-feeling interface.',
     longDescription: `
       t1 is a modern, extensible desktop application that brings together essential developer utilities in one place. 
       Built with performance and user experience in mind, it features a clean interface, dark/light themes, 
@@ -15,24 +15,22 @@ export const tools: Tool[] = [
     status: 'active',
     
     tech: ['Tauri', 'React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Rust'],
-    platforms: ['Windows 11', 'Windows 10'],
+    platforms: ['Windows 11', 'Windows 10', 'MacOs (M-series)'],
     version: '0.6.1-Alpha',
     license: 'MIT',
     
-    github: 'https://github.com/Joseph101GH/t1', // UPDATE THIS WITH YOUR ACTUAL REPO
+    github: 'https://github.com/Joseph101GH/t1',
     releases: {
       latest: '0.6.1-Alpha',
-      downloadUrl: 'https://github.com/Joseph101GH/t1/releases/latest', // UPDATE THIS
+      downloadUrl: 'https://github.com/Joseph101GH/t1/releases/latest',
     },
     
     images: {
-      hero: '/images/tools/t1/placeholder.svg',
+      hero: '/images/tools/t1/t1-screenshot.png',
       screenshots: [
-        '/images/tools/t1/placeholder.svg',
-        '/images/tools/t1/placeholder.svg',
-        '/images/tools/t1/placeholder.svg',
+        '/images/tools/t1/t1-screenshot.png',
       ],
-      demo: '/images/tools/t1/placeholder.svg',
+      demo: '/images/tools/t1/t1-gif.gif',
       icon: '/images/tools/t1/placeholder.svg',
     },
     

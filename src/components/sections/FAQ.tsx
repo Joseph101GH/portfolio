@@ -1,4 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const faqs = [
   {
@@ -7,7 +12,7 @@ const faqs = [
   },
   {
     question: "Will these tools work on my Windows version?",
-    answer: "The tools are designed for Windows 11 but should work on Windows 10 as well. They're built with Tauri, which provides excellent compatibility across Windows versions."
+    answer: "The tools are designed for Windows 11 but should work on Windows 10 and MacOs (M-series)as well. They're built with Tauri, which provides excellent compatibility across Windows versions."
   },
   {
     question: "How do I install and update the tools?",
@@ -22,15 +27,19 @@ const faqs = [
     answer: "Yes, all tools run locally on your machine. No data is sent to external servers. The .env editor, for example, only works with local files and doesn't transmit any information."
   },
   {
+    question: "Will you provide a sync feature for your tools?",
+    answer: "As previously stated, all my tools are designed to run locally on your machine. I don't plan to provide a sync feature for now, but I'm open to suggestions."
+  },
+  {
     question: "Why did you build these tools?",
-    answer: "As a developer, I found myself constantly switching between different utilities for common tasks. I built these tools to consolidate everything into one modern, efficient application that feels native to Windows 11."
+    answer: "As a developer, I found myself constantly switching between different utilities for common tasks. Building help me work and learn more about new technologies."
   }
 ];
 
 export default function FAQ() {
   return (
-    <section className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="container mx-auto px-4 py-16">
+      <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Frequently Asked Questions
@@ -40,39 +49,33 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="grid gap-6">
+        <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-lg">{faq.question}</CardTitle>
-              </CardHeader>
-              <CardContent>
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent>
                 <p className="text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </p>
-              </CardContent>
-            </Card>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
 
         <div className="mt-12 text-center">
           <p className="text-muted-foreground">
             Have more questions?{" "}
             <a 
-              href="https://github.com/Joseph101GH/t1/issues" // UPDATE WITH YOUR REPO
+              href="https://github.com/Joseph101GH/t1/issues"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
               Ask on GitHub
             </a>
-            {" "}or{" "}
-            <a 
-              href="mailto:your.email@example.com" // UPDATE WITH YOUR EMAIL
-              className="text-primary hover:underline"
-            >
-              send me an email
-            </a>
+            {" "}
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { ToolCard } from '@/components/tools/ToolCard';
 
 export default function ToolsGrid() {
   return (
-    <section id="tools" className="container mx-auto px-4 py-16">
+    <section id="tools" className="container mx-auto px-4 py-16 pt-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -26,14 +26,14 @@ export default function ToolsGrid() {
           <div className="bg-muted/40 rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold mb-2">More Tools Coming Soon</h3>
             <p className="text-muted-foreground mb-4">
-              I&apos;m actively working on expanding the toolkit. Follow the GitHub repository 
+              I&apos;m actively working on expanding my tools and adding new features. Follow the GitHub repository 
               to get notified about new releases and tools.
             </p>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-muted-foreground">
-              <span>• Unicode Character Picker</span>
-              <span>• Terminal Commands GUI</span>
-              <span>• File Size Analyzer</span>
-              <span>• QR Code Generator</span>
+              <span>• Games</span>
+              <span>• Youtube extension</span>
+              <span>• WoW addons</span>
+              <span>• File Duplicate Watcher</span>
             </div>
           </div>
         </div>

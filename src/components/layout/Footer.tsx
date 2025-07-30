@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Github, Mail, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { GitHubIconCombined } from '@/components/ui/github-icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,18 +19,12 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/Joseph101GH" // UPDATE WITH YOUR GITHUB
+                href="https://github.com/Joseph101GH" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:your.email@example.com" // UPDATE WITH YOUR EMAIL
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="w-5 h-5" />
+                <GitHubIconCombined size={20} />
               </a>
             </div>
           </div>
@@ -55,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/Joseph101GH/t1" // UPDATE WITH YOUR T1 REPO
+                  href="https://github.com/Joseph101GH/t1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors flex items-center space-x-1"
@@ -87,7 +82,7 @@ export default function Footer() {
 
         {/* Copyright & Legal */}
         <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>© {currentYear} Your Name. All rights reserved.</p> {/* UPDATE WITH YOUR NAME */}
+          <p>© {currentYear} Joseph. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <span>Built with Next.js & Tailwind CSS</span>
             <span>•</span>
