@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How do I install and update the tools?",
-    answer: "Download the latest release from the tool's card above or GitHub releases page. The installer will guide you through setup. For updates, simply download and install the newer version."
+    answer: "Download the latest release from the tools' card above or GitHub releases page. I always try to provide a portal version. For updates, simply download and install the newer version. There will e an automatic update feature in the future."
   },
   {
     question: "Can I request new features or tools?",

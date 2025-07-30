@@ -153,7 +153,7 @@ export function ToolCard({ tool }: ToolCardProps) {
               <Button
                 asChild
                 size="sm"
-                className="flex-1 bg-yellow-500 hover:bg-red-500"
+                className="flex-1 bg-gradient-to-br from-yellow-500 to-red-600 hover:bg-red-500" 
                 disabled={loading}
               >
                 <a
